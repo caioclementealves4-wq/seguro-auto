@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1ebe5d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Fale Conosco</h2>
+
+    <form onsubmit="enviarWhatsApp(); return false;">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="email" id="email" placeholder="Seu email" required>
+        <textarea id="mensagem" rows="4" placeholder="Digite sua mensagem" required></textarea>
+
+        <button type="submit">Enviar pelo WhatsApp</button>
+    </form>
+</div>
+
+<script>
+function enviarWhatsApp() {
+    var nome = document.getElementById("nome").value;
+    var email = document.getElementById("email").value;
+    var mensagem = document.getElementById("mensagem").value;
+
+    var numero = "5598992425168"; // 🔴 COLOQUE SEU NÚMERO AQUI
+
+    var texto = "Olá, meu nome é " + nome +
+                "%0AEmail: " + email +
+                "%0AMensagem: " + mensagem;
+
+    var url = "https://wa.me/" + numero + "?text=" + texto;
+
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
